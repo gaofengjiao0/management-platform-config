@@ -1,0 +1,121 @@
+spring: 
+    profiles: 
+        active: 
+        - dev
+---
+server:
+    port: 5003
+spring:
+    profiles: dev
+    application:
+        name: management-platform-sys
+
+# DataSource Config
+    datasource:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/management-platform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&nullCatalogMeansCurrent=true            # 数据库名称
+      username: root
+      password: root
+
+mybatis-plus:
+    mapper-locations: classpath:com.gaofj.mp.mapper/*Mapper.xml #指定映射文件
+    type-aliases-package: com.gaofj.mp.sys.entity #别名包
+    configuration:
+        map-underscore-to-camel-case: true #开启驼峰命名
+        # 这个配置会将执行的sql打印出来，在开发或测试的时候可以用
+        log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+eureka:
+  client: #客户端注册进eureka服务列表内
+    service-url:
+      defaultZone: http://mp-eureka:5002/eureka/
+  instance:
+    instance-id: management-platform-sys-eureka
+    prefer-ip-address: true     #访问路径可以显示IP地址
+
+
+
+actuator:
+  info:
+    app.name: servicecloud
+    company.name: www.gaofengjiao.com
+    build.artifactId: servicecloud
+    build.version: 1.0-SNAPSHOT
+    
+---
+server:
+    port: 5003
+spring:
+    profiles: test
+    application:
+        name: management-platform-sys
+# DataSource Config
+    datasource:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/management-platform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&nullCatalogMeansCurrent=true            # 数据库名称
+      username: root
+      password: root
+
+mybatis-plus:
+    mapper-locations: classpath:com.gaofj.mp.mapper/*Mapper.xml #指定映射文件
+    type-aliases-package: com.gaofj.mp.sys.entity #别名包
+    configuration:
+        map-underscore-to-camel-case: true #开启驼峰命名
+        # 这个配置会将执行的sql打印出来，在开发或测试的时候可以用
+        log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+eureka:
+  client: #客户端注册进eureka服务列表内
+    service-url:
+      defaultZone: http://mp-eureka:5002/eureka/
+  instance:
+    instance-id: management-platform-sys-eureka
+    prefer-ip-address: true     #访问路径可以显示IP地址
+
+
+
+actuator:
+  info:
+    app.name: servicecloud
+    company.name: www.gaofengjiao.com
+    build.artifactId: servicecloud
+    build.version: 1.0-SNAPSHOT
+    
+---
+server:
+    port: 5003
+spring:
+    profiles: prod
+    application:
+        name: management-platform-sys
+# DataSource Config
+    datasource:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/management-platform?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&nullCatalogMeansCurrent=true            # 数据库名称
+      username: root
+      password: root
+
+mybatis-plus:
+    mapper-locations: classpath:com.gaofj.mp.mapper/*Mapper.xml #指定映射文件
+    type-aliases-package: com.gaofj.mp.sys.entity #别名包
+    configuration:
+        map-underscore-to-camel-case: true #开启驼峰命名
+        # 这个配置会将执行的sql打印出来，在开发或测试的时候可以用
+        log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+eureka:
+  client: #客户端注册进eureka服务列表内
+    service-url:
+      defaultZone: http://mp-eureka:5002/eureka/
+  instance:
+    instance-id: management-platform-sys-eureka
+    prefer-ip-address: true     #访问路径可以显示IP地址
+
+
+
+actuator:
+  info:
+    app.name: servicecloud
+    company.name: www.gaofengjiao.com
+    build.artifactId: servicecloud
+    build.version: 1.0-SNAPSHOT
