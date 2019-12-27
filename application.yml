@@ -1,11 +1,30 @@
-server:
-  port: 5001
-spring:
-  application:
-    name: management-platform-config
-  cloud:
-    config:
-      server:
-        git:
-          uri: https://github.com/gaofengjiao0/management-platform-config.git
+spring: 
+    profiles: 
+        active: 
+        - dev
+---
+server: 
+    port: 8201
+spring: 
+    profiles: dev   #开发环境
+    application: 
+        name: servicecloud-config-client
 
+eureka: 
+    client: 
+        service-url: 
+            defaultZone: http://eureka-dev:7001/eureka/
+            
+---
+
+server: 
+    port: 8202
+spring: 
+    profiles: test   #测试环境
+    application: 
+        name: servicecloud-config-client
+        
+eureka: 
+    client: 
+        service-url: 
+            defaultZone: http://eureka-test:7001/eureka/
