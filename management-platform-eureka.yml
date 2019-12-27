@@ -1,0 +1,58 @@
+spring: 
+    profiles: 
+        active: 
+        - dev
+       
+---     
+spring:
+  application:
+    name: management-platform-eureka
+  profiles: dev
+
+server:
+  port: 5002
+
+eureka:
+  instance:
+    hostname: mp-eureka
+  client:
+    register-with-eureka: false #false表示不向注册中心注册自己。
+    fetch-registry: false #false表示自己端就是注册中心，我的职责就是维护服务实例，并不需要去检索服务
+    service-url:
+      defaultZone: http://mp-eureka:5002
+
+---     
+spring:
+  application:
+    name: management-platform-eureka
+  profiles: test
+
+server:
+  port: 5002
+
+eureka:
+  instance:
+    hostname: mp-eureka
+  client:
+    register-with-eureka: false #false表示不向注册中心注册自己。
+    fetch-registry: false #false表示自己端就是注册中心，我的职责就是维护服务实例，并不需要去检索服务
+    service-url:
+      defaultZone: http://mp-eureka:5002
+      
+---     
+spring:
+  application:
+    name: management-platform-eureka
+  profiles: prod
+
+server:
+  port: 5002
+
+eureka:
+  instance:
+    hostname: mp-eureka
+  client:
+    register-with-eureka: false #false表示不向注册中心注册自己。
+    fetch-registry: false #false表示自己端就是注册中心，我的职责就是维护服务实例，并不需要去检索服务
+    service-url:
+      defaultZone: http://mp-eureka:5002
